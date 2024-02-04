@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طراحان</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="shortcut icon" href="{% static '/assets/tarahanIcon-thsqZuN2.svg' %}" type="image/x-icon">
+
+    <script type="module" crossorigin src="{% static '/assets/output-22b6PNpL.js' %}"></script>
+    <script type="module" crossorigin src="{% static '/assets/main-Acrfd2WL.js' %}"></script>
+    <link rel="stylesheet" crossorigin href="{% static '/assets/output-xplU_3MA.css' %}">
+</head>
+<body dir="rtl">
+    {% include 'nav.html' %}
+    <nav class="w-full h-14 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.15)] px-4 hidden lg:flex justify-between items-center">
+      <a href="{% url 'website:home' %}">
+      <img src="{% static '/images/tarahanIcon.svg' %}" alt="" class="size-10 aspect-square">
+      </a>
+      <button class="flex flex-col justify-around w-6 h-6 bg-transparent border-none cursor-pointer z-10 focus:outline-none" id="hamburger">
+        <span class="block w-6 h-0.5 bg-black transition-transform duration-500 ease-in-out"></span>
+        <span class="block w-6 h-0.5 bg-black transition-transform duration-500 ease-in-out"></span>
+        <span class="block w-6 h-0.5 bg-black transition-transform duration-500 ease-in-out"></span>
+      </button>    
+    </nav>
+    {% include 'Phone.html' %}
+    <div class="px-36 2xl:px-10 py-4 bg-secondary h-28 flex justify-center md:!px-3 md:h-fit md:py-2 ">
+        <section class="w-full h-full bg-secondary ">
+            <h1 class="text-3xl font-extrabold text-primary md:text-lg">
+                مبل
+            </h1>
+            <div class="w-full h-fit flex items-center gap-1 text-xl font-normal text-primary mt-2 cursor-pointer md:text-sm">
+                <a href="{% url 'website:home' %}">
+                    خانه
+                </a>
+                <img src="data:image/svg+xml,%3csvg%20width='22'%20height='22'%20viewBox='0%200%2022%2022'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3crect%20width='22'%20height='22'%20transform='matrix(1%200%200%20-1%200%2022)'%20fill='url(%23pattern0)'/%3e%3cdefs%3e%3cpattern%20id='pattern0'%20patternContentUnits='objectBoundingBox'%20width='1'%20height='1'%3e%3cuse%20xlink:href='%23image0_638_2126'%20transform='scale(0.0192308)'/%3e%3c/pattern%3e%3cimage%20id='image0_638_2126'%20width='52'%20height='52'%20xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAtElEQVR4nO3ZwQnCQBCF4alJD7Ggt38NuXm1WcUOFFHQg4mKh51Z3gdbwM9MwpJEmJmZLQMmYI4RSNq21k7ApbV2iFFieJyyUXoTUzZKKzHlori/AM5rMS9nLj8ZnucWPUVWckxS8mSSkieTlDyZpOTJJCVPJjFgAxy/vWxK2kV2OApPqhu8fnj9uvH64fXrx+uH16+foT4F//hM7aMS1qNqxXyIqhmzEFU7ZsifxmZmFn+6Ajj7X4aUiCzdAAAAAElFTkSuQmCC'/%3e%3c/defs%3e%3c/svg%3e" class="size-4" alt="">
+                <a href="{% url 'website:sofas' %}" >مبل و پارچه مبلی</a>
+            </div>
+        </section>
+    </div>
+    <main class="w-full h-fit px-48 2xl:px-16 md:!px-0 py-10 md:py-5 flex flex-col gap-20 md:gap-5 items-center bg-tertiary">
+      <section class="swiper headerSlider w-full">
+        <div class="swiper-wrapper">
+            {% for sofa_banner in sofa_banners %}
+                <div class="swiper-slide w-3/5 opacity-70 h-[500px] md:w-4/5 md:h-[180px] rounded-[35px] md:rounded-3xl overflow-hidden">
+                    <img class="w-full h-full object-cover" src="{{ sofa_banner.large_sofa_image_1.url }}" alt="Large Image 1" />
+                </div>
+                <div class="swiper-slide w-3/5 opacity-70 h-[500px] md:w-4/5 md:h-[180px] rounded-[35px] md:rounded-3xl overflow-hidden">
+                    <img class="w-full h-full object-cover" src="{{ sofa_banner.large_sofa_image_2.url }}" alt="Large Image 2" />
+                </div>
+                <div class="swiper-slide w-3/5 opacity-70 h-[500px] md:w-4/5 md:h-[180px] rounded-[35px] md:rounded-3xl overflow-hidden">
+                    <img class="w-full h-full object-cover" src="{{ sofa_banner.large_sofa_image_3.url }}" alt="Large Image 3" />
+                </div>
+            {% endfor %}
+        </div>
+      </section>    
+        <section class="w-full flex justify-start gap-10 lg:flex-wrap lg:justify-center">
+            <div class="bg-white w-1/4 flex flex-col gap-2 items-center rounded-3xl overflow-hidden lg:w-2/5 ">
+                {% for sofa_banner in sofa_banners %}
+                <img src="{{ sofa_banner.small_sofa_image.url }}" class="w-full object-cover max-h-52 rounded-3xl shadow-3xl lg:max-h-40" alt="">
+                {% endfor %}
+                <a href="{% url 'products:sofa' %}">
+                <h3 class="text-primary font-extrabold text-2xl mb-2 lg:text-lg">مبلمان</h3>
+                </a>
+            </div>
+            <div class="bg-white w-1/4 flex flex-col gap-2 items-center rounded-3xl overflow-hidden lg:w-2/5 ">
+                {% for sofa_banner in sofa_banners %}
+                <img src="{{ sofa_banner.small_sofafabric_image.url }}" class="w-full object-cover max-h-52 rounded-3xl shadow-3xl lg:max-h-40" alt="">
+                {% endfor %}
+                <a href="{% url 'products:sofafabric' %}">
+                <h3 class="text-primary font-extrabold text-2xl mb-2 lg:text-lg">پارچه مبلی</h3>
+                </a>
+            </div>
+            
+        </section>
+        <section class="md:w-11/12 w-full h-fit p-8 md:p-2 flex flex-col gap-8 bg-secondary rounded-3xl">
+            <div class="w-full flex flex-col gap-4 ">
+              <h3 class="w-fit h-fit mr-9 bg-white px-4 py-2 rounded-2xl text-2xl text-primary font-extrabold md:mr-5 md:text-xs md:rounded-xl">
+                نمونه مبلمان
+              </h3>
+              <div class="flex w-full">
+                <button class="swiper-next-button"><img src="data:image/svg+xml,%3csvg%20width='22'%20height='22'%20viewBox='0%200%2022%2022'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3crect%20y='22'%20width='22'%20height='22'%20transform='rotate(-90%200%2022)'%20fill='url(%23pattern0)'/%3e%3cdefs%3e%3cpattern%20id='pattern0'%20patternContentUnits='objectBoundingBox'%20width='1'%20height='1'%3e%3cuse%20xlink:href='%23image0_525_2128'%20transform='scale(0.0192308)'/%3e%3c/pattern%3e%3cimage%20id='image0_525_2128'%20width='52'%20height='52'%20xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAACXBIWXMAAAsTAAALEwEAmpwYAAABqUlEQVR4nO3aP2sUQRyH8cFUASEpo5JKhFyRNCmipg/6Aq4+uNnvM9x2+wqO+AbSaWFeREqx8CUkYMpAQqo0ajTEQkQMV6xcjiPe3+zMj31gum0+MMzOzK5zdXV1ydbpdFYl7QM/JR177xsu1SS9lvQF+Ns3PrnUajabC8AbSX8GML3xy6VUq9ValvRxCOTfcKkEPAKO7sIkA/LeN4Dz/2GSAGVZ9hz4OgomepCkl5J+jIqJGqQJMNGCQgjbwNW4mChB3vsNSd8mwUQHAp5KupgUExUohPBE0tk0mGhAeZ4/HOWlmQSo2+0+kHQwC0wUIEl7s8JUDgKyWWIqBQE7kn6bAIUQngHfZ42pBFQUxaKkw3lgKgFJejcvTCUg5jTVqgRdWgO9NQUqrC0Kfcv2XKaeqyosvVjLQgjeFMjc5tTk8cHcAa+s3W4/Bk7NgMxdkpQB62ausaa9NY0W1At4YeYquCzLss1xp5+LPWBryLfUdEHl6gecmAH1yvN8ZZRjh0spYAn4YAZU7v2AXROf9fsDXpn48WLw1xjgPXANfAbWbj1QV1fn7rsbLADZBQTyItwAAAAASUVORK5CYII='/%3e%3c/defs%3e%3c/svg%3e" class="-rotate-90" alt=""></button>
+                <div class="swiper sampelsSlider w-full" id="slide1">
+                  <div class="swiper-wrapper w-full">
+                    {% for sofa in latest_sofas %}
+                    <div class="swiper-slide h-56 flex justify-center items-center md:h-28">
+                      <a href="{% url 'products:product_detail' product_id=sofa.id %}">
+                      <img src="{{ sofa.images.first.image.url }}" class="w-full h-full object-cover rounded-2xl" alt="">
+                      </a>
+                    </div>
+                    {% endfor %}
+                  </div>
+                </div>
+                <button class="swiper-prev-button"><img src="data:image/svg+xml,%3csvg%20width='22'%20height='22'%20viewBox='0%200%2022%2022'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3crect%20y='22'%20width='22'%20height='22'%20transform='rotate(-90%200%2022)'%20fill='url(%23pattern0)'/%3e%3cdefs%3e%3cpattern%20id='pattern0'%20patternContentUnits='objectBoundingBox'%20width='1'%20height='1'%3e%3cuse%20xlink:href='%23image0_525_2128'%20transform='scale(0.0192308)'/%3e%3c/pattern%3e%3cimage%20id='image0_525_2128'%20width='52'%20height='52'%20xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAACXBIWXMAAAsTAAALEwEAmpwYAAABqUlEQVR4nO3aP2sUQRyH8cFUASEpo5JKhFyRNCmipg/6Aq4+uNnvM9x2+wqO+AbSaWFeREqx8CUkYMpAQqo0ajTEQkQMV6xcjiPe3+zMj31gum0+MMzOzK5zdXV1ydbpdFYl7QM/JR177xsu1SS9lvQF+Ns3PrnUajabC8AbSX8GML3xy6VUq9ValvRxCOTfcKkEPAKO7sIkA/LeN4Dz/2GSAGVZ9hz4OgomepCkl5J+jIqJGqQJMNGCQgjbwNW4mChB3vsNSd8mwUQHAp5KupgUExUohPBE0tk0mGhAeZ4/HOWlmQSo2+0+kHQwC0wUIEl7s8JUDgKyWWIqBQE7kn6bAIUQngHfZ42pBFQUxaKkw3lgKgFJejcvTCUg5jTVqgRdWgO9NQUqrC0Kfcv2XKaeqyosvVjLQgjeFMjc5tTk8cHcAa+s3W4/Bk7NgMxdkpQB62ausaa9NY0W1At4YeYquCzLss1xp5+LPWBryLfUdEHl6gecmAH1yvN8ZZRjh0spYAn4YAZU7v2AXROf9fsDXpn48WLw1xjgPXANfAbWbj1QV1fn7rsbLADZBQTyItwAAAAASUVORK5CYII='/%3e%3c/defs%3e%3c/svg%3e" class="rotate-90" alt=""></button>
+              </div>
+            </div>
+            <div class="w-full flex flex-col gap-4 ">
+              <h3 class="w-fit h-fit mr-9 bg-white px-4 py-2 rounded-2xl text-2xl text-primary font-extrabold md:mr-5 md:text-xs md:rounded-xl">
+                نمونه پارچه مبلی
+              </h3>
+              <div class="flex w-full">
+                <button class="swiper-next-button"><img src="data:image/svg+xml,%3csvg%20width='22'%20height='22'%20viewBox='0%200%2022%2022'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3crect%20y='22'%20width='22'%20height='22'%20transform='rotate(-90%200%2022)'%20fill='url(%23pattern0)'/%3e%3cdefs%3e%3cpattern%20id='pattern0'%20patternContentUnits='objectBoundingBox'%20width='1'%20height='1'%3e%3cuse%20xlink:href='%23image0_525_2128'%20transform='scale(0.0192308)'/%3e%3c/pattern%3e%3cimage%20id='image0_525_2128'%20width='52'%20height='52'%20xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAACXBIWXMAAAsTAAALEwEAmpwYAAABqUlEQVR4nO3aP2sUQRyH8cFUASEpo5JKhFyRNCmipg/6Aq4+uNnvM9x2+wqO+AbSaWFeREqx8CUkYMpAQqo0ajTEQkQMV6xcjiPe3+zMj31gum0+MMzOzK5zdXV1ydbpdFYl7QM/JR177xsu1SS9lvQF+Ns3PrnUajabC8AbSX8GML3xy6VUq9ValvRxCOTfcKkEPAKO7sIkA/LeN4Dz/2GSAGVZ9hz4OgomepCkl5J+jIqJGqQJMNGCQgjbwNW4mChB3vsNSd8mwUQHAp5KupgUExUohPBE0tk0mGhAeZ4/HOWlmQSo2+0+kHQwC0wUIEl7s8JUDgKyWWIqBQE7kn6bAIUQngHfZ42pBFQUxaKkw3lgKgFJejcvTCUg5jTVqgRdWgO9NQUqrC0Kfcv2XKaeqyosvVjLQgjeFMjc5tTk8cHcAa+s3W4/Bk7NgMxdkpQB62ausaa9NY0W1At4YeYquCzLss1xp5+LPWBryLfUdEHl6gecmAH1yvN8ZZRjh0spYAn4YAZU7v2AXROf9fsDXpn48WLw1xjgPXANfAbWbj1QV1fn7rsbLADZBQTyItwAAAAASUVORK5CYII='/%3e%3c/defs%3e%3c/svg%3e" class="-rotate-90" alt=""></button>
+                <div class="swiper sampelsSlider w-full" id="slide2">
+                  <div class="swiper-wrapper w-full">
+                    {% for fabric in latest_sofafabrics %}
+                    <div class="swiper-slide h-56 flex justify-center items-center md:h-28">
+                      <a href="{% url 'products:product_detail' product_id=fabric.id %}">
+                      <img src="{{ fabric.images.first.image.url }}" class="w-full h-full object-cover rounded-2xl" alt="">
+                      </a>
+                    </div>
+                    {% endfor %}
+                  </div>
+                </div>
+                <button class="swiper-prev-button"><img src="data:image/svg+xml,%3csvg%20width='22'%20height='22'%20viewBox='0%200%2022%2022'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3crect%20y='22'%20width='22'%20height='22'%20transform='rotate(-90%200%2022)'%20fill='url(%23pattern0)'/%3e%3cdefs%3e%3cpattern%20id='pattern0'%20patternContentUnits='objectBoundingBox'%20width='1'%20height='1'%3e%3cuse%20xlink:href='%23image0_525_2128'%20transform='scale(0.0192308)'/%3e%3c/pattern%3e%3cimage%20id='image0_525_2128'%20width='52'%20height='52'%20xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAACXBIWXMAAAsTAAALEwEAmpwYAAABqUlEQVR4nO3aP2sUQRyH8cFUASEpo5JKhFyRNCmipg/6Aq4+uNnvM9x2+wqO+AbSaWFeREqx8CUkYMpAQqo0ajTEQkQMV6xcjiPe3+zMj31gum0+MMzOzK5zdXV1ydbpdFYl7QM/JR177xsu1SS9lvQF+Ns3PrnUajabC8AbSX8GML3xy6VUq9ValvRxCOTfcKkEPAKO7sIkA/LeN4Dz/2GSAGVZ9hz4OgomepCkl5J+jIqJGqQJMNGCQgjbwNW4mChB3vsNSd8mwUQHAp5KupgUExUohPBE0tk0mGhAeZ4/HOWlmQSo2+0+kHQwC0wUIEl7s8JUDgKyWWIqBQE7kn6bAIUQngHfZ42pBFQUxaKkw3lgKgFJejcvTCUg5jTVqgRdWgO9NQUqrC0Kfcv2XKaeqyosvVjLQgjeFMjc5tTk8cHcAa+s3W4/Bk7NgMxdkpQB62ausaa9NY0W1At4YeYquCzLss1xp5+LPWBryLfUdEHl6gecmAH1yvN8ZZRjh0spYAn4YAZU7v2AXROf9fsDXpn48WLw1xjgPXANfAbWbj1QV1fn7rsbLADZBQTyItwAAAAASUVORK5CYII='/%3e%3c/defs%3e%3c/svg%3e" class="rotate-90" alt=""></button>
+              </div>
+            </div>
+        </section>
+    
+    </main>
+    {% include 'footer.html' %}
+
+</body>
+</html>

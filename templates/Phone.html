@@ -1,0 +1,55 @@
+<aside class="w-0 h-screen overflow-hidden hidden lg:flex flex-col absolute top-0 left-0 bg-white z-50 transition-all duration-500 py-4" id="phoneMenu">
+    <button class="flex flex-col justify-around w-6 h-6 bg-transparent border-none cursor-pointer z-10 focus:outline-none mr-5" id="hamburger">
+      <span class="block w-6 h-0.5 bg-black transition-transform duration-200 ease-in-out"></span>
+      <span class="block w-6 h-0.5 bg-black transition-transform duration-200 ease-in-out"></span>
+      <span class="block w-6 h-0.5 bg-black transition-transform duration-200 ease-in-out"></span>
+    </button>  
+    <div class="w-full">
+      <div class="w-full bg-white">
+        <button class="w-full flex items-center p-4 border-b border-gray-200 menu-button" data-target="nestedItems1">
+          <span>مبل و پارچه مبلی</span>
+        </button>
+        <div class="hidden menu-content" id="nestedItems1">
+          <ul class="list-disc">
+            <li>
+              <a href="{% url 'products:sofa' %}" class="w-full flex items-center text-sm p-4 pr-8">
+                <span>مبل</span>
+              </a>
+            </li>
+          <ul class="list-disc">
+            <li>
+              <a href="{% url 'products:sofafabric' %}" class="w-full flex items-center text-sm p-4 pr-8">
+                <span>پارچه مبلی</span>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+        <button class="w-full flex items-center p-4 border-b border-gray-200 menu-button" data-target="nestedItems2">
+          <span>دکراسیون</span>
+        </button>
+        <div class="pl-4 hidden menu-content" id="nestedItems2">
+          <a href="{% url 'products:wallcovering' %}" class="w-full flex items-center p-4 text-sm pr-8">
+            <span>پوشش های دیواری</span>
+          </a>
+          <a href="{% url 'products:floorcovering' %}" class="w-full flex items-center p-4 text-sm pr-8">
+            <span>پوشش های کف</span>
+          </a>
+          <a href="{% url 'products:floorcovering' %}" class="w-full flex items-center p-4 text-sm pr-8">
+            <span>قرنیز</span>
+          </a>
+        </div>
+        <button class="w-full flex items-center p-4 border-b border-gray-200 menu-button" data-target="nestedItems2">
+          <span>پرده</span>
+        </button>
+        <div class="pl-4 hidden menu-content" id="nestedItems2">
+          <a href="{% url 'products:readycurtain' %}" class="w-full flex items-center p-4 text-sm pr-8">
+            <span>پرده آماده</span>
+          </a>
+          <a href="{% url 'products:customcurtain' %}" class="w-full flex items-center p-4 text-sm pr-8">
+            <span>پرده سفارشی</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </aside>

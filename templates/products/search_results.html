@@ -1,0 +1,53 @@
+
+{% extends 'products/base_products.html' %}
+{% load static %}
+      <!-- main-area -->
+    {% block content %}
+    <main class="w-full h-fit px-48 2xl:px-16 md:!px-0 py-10 md:py-5 flex flex-col gap-10 md:gap-5 items-center bg-tertiary">
+      <h1>نتیجه جست و جو برای :  {{ query }}</h1> 
+        <section class="w-full h-fit bg-secondary p-10 md:p-5 grid grid-cols-4 xl:grid-cols-2 gap-5 rounded-4xl">
+        {% if results %}
+            {% for product in results %}
+            <div class="w-full h-fit flex flex-col gap-2 p-2 bg-white rounded-4xl md:rounded-lg">
+              <a href="{% url 'products:product_detail' product_id=product.id %}">
+                <img src="{{ product.images.first.image.url }}" class="w-full h-60 md:h-auto md:aspect-video md:rounded-lg object-cover rounded-3xl " alt="{{ product.title }}">
+                <h4 class="text-primary text-xl md:text-base font-bold">{{ product.title }}</h4>
+              </a>
+                <div class="w-full flex justify-end">
+                  <span class="text-primary text-lg md:text-sm font-bold">
+                {% if product.price %}
+                  
+                   {% if user.is_authenticated %}
+                         {% if user.customer_type == 'wholesale' %}
+                            <span class="text-primary text-lg md:text-sm font-bold">
+                            {{ product.price.price_wholesale }} تومان
+                            </span>
+                        {% else %}
+                        <span class="text-primary text-lg md:text-sm font-bold">
+                            {{ product.price.price_retail }} تومان
+                        </span>
+                        {% endif %}
+                    {% else %}
+                    <span class="text-primary text-lg md:text-sm font-bold">
+                      {{ product.price.price_retail }} تومان
+                    </span>
+                    {% endif %}
+                {% endif %}
+                  
+                </span>
+                </div>
+                <div class="w-full flex justify-center items-center">
+                    <a href="{% url 'products:product_detail' product_id=product.id %}">
+                    <button class="bg-primary px-6 py-2 text-tertiary text-lg md:text-sm md:px-3 font-bold rounded-xl">افزودن به سبد </button>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+        <p>چیزی پیدا نشد </p>
+        {% endif %}
+          </section>
+        </main>
+    {% endblock content %}
+
+

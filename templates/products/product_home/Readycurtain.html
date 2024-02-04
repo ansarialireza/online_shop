@@ -1,0 +1,70 @@
+{% extends 'products/base_products.html' %}
+{% load static %}
+      <!-- main-area -->
+    {% block content %}
+    <div class="px-36 2xl:px-10 py-4 bg-secondary h-28 flex justify-center md:!px-3 md:h-fit md:py-2 ">
+      <section class="w-full h-full bg-secondary ">
+          <h1 class="text-3xl font-extrabold text-primary md:text-lg">
+              پرده
+          </h1>
+          <div class="w-full h-fit flex items-center gap-1 text-xl font-normal text-primary mt-2 cursor-pointer md:text-sm">
+              <a href="{% url 'website:home' %}">
+                  خانه
+              </a>
+              <img src="data:image/svg+xml,%3csvg%20width='22'%20height='22'%20viewBox='0%200%2022%2022'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3crect%20width='22'%20height='22'%20transform='matrix(1%200%200%20-1%200%2022)'%20fill='url(%23pattern0)'/%3e%3cdefs%3e%3cpattern%20id='pattern0'%20patternContentUnits='objectBoundingBox'%20width='1'%20height='1'%3e%3cuse%20xlink:href='%23image0_638_2126'%20transform='scale(0.0192308)'/%3e%3c/pattern%3e%3cimage%20id='image0_638_2126'%20width='52'%20height='52'%20xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAtElEQVR4nO3ZwQnCQBCF4alJD7Ggt38NuXm1WcUOFFHQg4mKh51Z3gdbwM9MwpJEmJmZLQMmYI4RSNq21k7ApbV2iFFieJyyUXoTUzZKKzHlori/AM5rMS9nLj8ZnucWPUVWckxS8mSSkieTlDyZpOTJJCVPJjFgAxy/vWxK2kV2OApPqhu8fnj9uvH64fXrx+uH16+foT4F//hM7aMS1qNqxXyIqhmzEFU7ZsifxmZmFn+6Ajj7X4aUiCzdAAAAAElFTkSuQmCC'/%3e%3c/defs%3e%3c/svg%3e" class="size-4" alt="">
+              <a href="{% url 'products:readycurtain' %}">پرده آماده</a>
+          </div>
+      </section>
+  </div>
+    <main class="w-full h-fit px-48 2xl:px-16 md:!px-0 py-10 md:py-5 flex flex-col gap-10 md:gap-5 items-center bg-tertiary">
+      <section class="w-full flex justify-start items-start flex-col gap-5">
+            <div class="flex gap-4">
+                <a href="{% url 'products:readycurtain' %}">
+                <button class="py-2 px-8 font-extrabold bg-secondary text-senary rounded-2xl text-2xl min-w-40">پرده آماده</button>
+                </a>
+                <a href="{% url 'products:customcurtain' %}">
+                <button class="py-2 px-8 font-extrabold bg-secondary text-senary rounded-2xl text-2xl min-w-40">پرده سفارشی</button>
+                </a>
+                <a href="{% url 'products:zebracurtain' %}">
+                  <button class="py-2 px-8 font-extrabold bg-secondary text-senary rounded-2xl text-2xl min-w-40">زبرا شیپ</button>
+                </a>
+            </div>
+        </section> 
+        <section class="w-full h-fit bg-secondary p-10 md:p-5 grid grid-cols-4 xl:grid-cols-2 gap-5 rounded-4xl">
+            {% for product in readycurtains %}
+            <div class="w-full h-fit flex flex-col gap-2 p-2 bg-white rounded-4xl md:rounded-lg">
+              <a href="{% url 'products:product_detail' product_id=product.id %}">
+                <img src="{{ product.images.first.image.url }}" class="w-full h-60 md:h-auto md:aspect-video md:rounded-lg object-cover rounded-3xl " alt="{{ product.title }}">
+                <h4 class="text-primary text-xl md:text-base font-bold">{{ product.title }}</h4>
+              </a>
+                <div class="w-full flex justify-end">
+                  <span class="text-primary text-lg md:text-sm font-bold">
+                   {% if user.is_authenticated %}
+                         {% if user.customer_type == 'wholesale' %}
+                            <span class="text-primary text-lg md:text-sm font-bold">
+                            {{ product.price.price_wholesale }} تومان
+                            </span>
+                        {% else %}
+                        <span class="text-primary text-lg md:text-sm font-bold">
+                            {{ product.price.price_retail }} تومان
+                        </span>
+                        {% endif %}
+                    {% else %}
+                    <span class="text-primary text-lg md:text-sm font-bold">
+                      {{ product.price.price_retail }} تومان
+                    </span>
+                    {% endif %}
+                </span>
+                </div>
+                <div class="w-full flex justify-center items-center">
+                    <a href="{% url 'products:product_detail' product_id=product.id %}">
+                    <button class="bg-primary px-6 py-2 text-tertiary text-lg md:text-sm md:px-3 font-bold rounded-xl">افزودن به سبد </button>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+          </section>
+        </main>
+    {% endblock content %}
+
+

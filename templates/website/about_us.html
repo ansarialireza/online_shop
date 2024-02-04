@@ -1,0 +1,70 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طراحان</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" crossorigin href="{% static '/assets/alert.css' %}">
+    <link rel="shortcut icon" href="{% static '/assets/tarahanIcon-thsqZuN2.svg' %}" type="image/x-icon">
+    <script type="module" crossorigin src="{% static '/assets/output-22b6PNpL.js' %}"></script>
+    <script type="module" crossorigin src="{% static '/assets/main-Acrfd2WL.js' %}"></script>
+    <link rel="stylesheet" crossorigin href="{% static '/assets/output-xplU_3MA.css' %}">
+  </head>
+  <body dir="rtl">
+    {% include 'nav.html' %}
+
+    <nav class="w-full h-14 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.15)] px-4 hidden lg:flex justify-between items-center relative">
+      <a href="{% url 'website:home' %}">
+      <img src="{% static '/images/tarahanIcon.svg' %}" alt="" class="size-10 aspect-square">
+      </a>
+      <button class="flex flex-col justify-around w-6 h-6 bg-transparent border-none cursor-pointer z-10 focus:outline-none" id="hamburger">
+        <span class="block w-6 h-0.5 bg-black transition-transform duration-500 ease-in-out"></span>
+        <span class="block w-6 h-0.5 bg-black transition-transform duration-500 ease-in-out"></span>
+        <span class="block w-6 h-0.5 bg-black transition-transform duration-500 ease-in-out"></span>
+      </button>    
+    </nav>
+    {% include 'Phone.html' %}
+    <section class="px-36 2xl:px-10 py-4 bg-secondary h-28 flex justify-center md:!px-3 md:h-fit md:py-2 ">
+        <div class="w-full h-full bg-secondary ">
+            <h1 class="text-3xl font-extrabold text-primary md:text-lg">
+                دکوراسیون
+            </h1>
+            <div class="w-full h-fit flex items-center gap-1 text-xl font-normal text-primary mt-2 cursor-pointer md:text-sm">
+                <a>
+                    خانه
+                </a>
+                <img src="data:image/svg+xml,%3csvg%20width='22'%20height='22'%20viewBox='0%200%2022%2022'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3crect%20width='22'%20height='22'%20transform='matrix(1%200%200%20-1%200%2022)'%20fill='url(%23pattern0)'/%3e%3cdefs%3e%3cpattern%20id='pattern0'%20patternContentUnits='objectBoundingBox'%20width='1'%20height='1'%3e%3cuse%20xlink:href='%23image0_638_2126'%20transform='scale(0.0192308)'/%3e%3c/pattern%3e%3cimage%20id='image0_638_2126'%20width='52'%20height='52'%20xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAtElEQVR4nO3ZwQnCQBCF4alJD7Ggt38NuXm1WcUOFFHQg4mKh51Z3gdbwM9MwpJEmJmZLQMmYI4RSNq21k7ApbV2iFFieJyyUXoTUzZKKzHlori/AM5rMS9nLj8ZnucWPUVWckxS8mSSkieTlDyZpOTJJCVPJjFgAxy/vWxK2kV2OApPqhu8fnj9uvH64fXrx+uH16+foT4F//hM7aMS1qNqxXyIqhmzEFU7ZsifxmZmFn+6Ajj7X4aUiCzdAAAAAElFTkSuQmCC'/%3e%3c/defs%3e%3c/svg%3e" class="size-4" alt="">
+                <a>دکوراسیون</a>
+            </div>
+        </div>
+    </section>
+    <main class="w-full h-fit px-48 2xl:px-16 md:!px-0 py-10 md:py-5 flex flex-col gap-10 md:gap-5 items-center bg-tertiary">
+      <section class="md:w-11/12 w-full min-h-[550px] rounded-3xl bg-secondary h-fit flex justify-between gap-10 md:gap-0 p-8 md:p-4 md:flex-col-reverse">
+        <div class="w-3/5 md:w-full h-full flex flex-col gap-10 md:gap-3 md:-mt-5">
+          <h2 class="text-primary text-3xl md:text-xl font-extrabold w-fit bg-white px-5 py-2 rounded-3xl">لورم ایپسوم</h2>
+          <p class="text-primary text-xl font-medium text-justify md:text-sm">
+            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+          </p>
+        </div>
+        <div class="w-2/5 md:w-full md:h-40 aspect-square md:aspect-video rounded-3xl">
+          <img src="{% static '/assets/section1-64MlBNZn.svg' %}" class="w-full h-full aspect-square md:aspect-video rounded-3xl object-cover" alt="">
+        </div>
+      </section>
+      <section class="md:w-11/12 w-full min-h-[550px] rounded-3xl bg-secondary h-fit flex justify-between gap-10 md:gap-0 p-8 md:p-4 md:flex-col-reverse">
+        <div class="w-3/5 md:w-full h-full flex flex-col gap-10 md:gap-3 md:-mt-5">
+          <h2 class="text-primary text-3xl md:text-xl font-extrabold w-fit bg-white px-5 py-2 rounded-3xl">لورم ایپسوم</h2>
+          <p class="text-primary text-xl font-medium text-justify md:text-sm">
+            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+          </p>
+        </div>
+        <div class="w-2/5 md:w-full md:h-40 aspect-square md:aspect-video rounded-3xl">
+          <img src="{% static '/assets/section1-64MlBNZn.svg' %}" class="w-full h-full aspect-square md:aspect-video rounded-3xl object-cover" alt="">
+        </div>
+      </section>
+    </main>
+    {% include 'footer.html' %}
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</body>
+</html>

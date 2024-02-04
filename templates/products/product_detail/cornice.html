@@ -1,0 +1,417 @@
+<div
+class="w-full h-14 flex gap-5 items-center col-span-2 text-xl font-bold">
+نوع قرنیز:
+</div>
+<div class="w-full h-14 flex gap-5 items-center">
+  <span class="text-primary text-lg md:text-xl font bold md:col-span-1">
+    قرنیز 7 سانتی
+  </span>
+  <input
+    type="checkbox"
+    id="checkbox"
+    data-index="1"
+    class="size-5 group" />
+  <div class="h-full bg-white"></div>
+  </div>
+  <label
+  for="variantInput"
+  class="relative flex h-14 rounded-lg overflow-hidden">
+  <div
+    id="plus"
+    class="bg-primary text-tertiary cursor-pointer h-full aspect-square flex justify-center items-center text-2xl font-extrabold">
+    +
+  </div>
+  <!-- ----------------------- -->
+  {% if user.is_authenticated %}
+    {% if user.customer_type == 'wholesale' %}
+      <input
+        type="number"
+        value="0"
+        name="cornice_7"
+        id="variantInput"
+        data-price="{{ cornice.Cornic_7.price_wholesale }}"
+        disabled
+        class="w-full bg-tertiary mx-auto px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mx-auto text-center !outline-none !border-none"
+        placeholder="تعداد :" />
+      <!-- ----------------------- -->
+      {% else %}
+      <!-- ----------------------- -->
+      <input
+      type="number"
+      value="0"
+      name="cornice_7"
+      id="variantInput"
+      data-price="{{ cornice.Cornic_7.price_retail }}"
+      disabled
+      class="w-full bg-tertiary mx-auto px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mx-auto text-center !outline-none !border-none"
+      placeholder="تعداد :" />
+    <!-- ----------------------- -->
+    {% endif %}
+  {% else %}
+    <input
+    type="number"
+    value="0"
+    name="cornice_7"
+    id="variantInput"
+    data-price="{{ cornice.Cornic_7.price_retail }}"
+    disabled
+    class="w-full bg-tertiary mx-auto px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mx-auto text-center !outline-none !border-none"
+    placeholder="تعداد :" />
+  {% endif %}
+  
+
+
+      
+
+  <div
+    id="minus"
+    class="bg-primary text-tertiary cursor-pointer h-full aspect-square flex justify-center items-center text-2xl font-extrabold">
+    -
+  </div>
+  </label>
+  <div class="w-full h-14 flex gap-5 items-center">
+    <span class="text-primary text-lg md:text-xl font bold">
+      قرنیز 9 سانتی
+    </span>
+    <input
+      type="checkbox"
+      id="checkbox"
+      data-index="1"
+      class="size-5 group" />
+    <div class="h-full bg-white"></div>
+    </div>
+    <label
+    for="variantInput"
+    class="relative flex h-14 rounded-lg overflow-hidden">
+    <div
+      id="plus"
+      class="bg-primary text-tertiary cursor-pointer h-full aspect-square flex justify-center items-center text-2xl font-extrabold">
+      +
+    </div>
+  <!-- ----------------------- -->
+  {% if user.is_authenticated %}
+    {% if user.customer_type == 'wholesale' %}
+      <input
+        type="number"
+        value="0"
+        name="cornice_9"
+        id="variantInput"
+        data-price="{{ cornice.Cornic_9.price_wholesale }}"
+        disabled
+        class="w-full bg-tertiary mx-auto px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mx-auto text-center !outline-none !border-none"
+        placeholder="تعداد : " />
+  <!-- ----------------------- -->
+  {% else %}
+      <input
+      type="number"
+      value="0"
+      name="cornice_9"
+      id="variantInput"
+      data-price="{{ cornice.Cornic_9.price_retail }}"
+      disabled
+      class="w-full bg-tertiary mx-auto px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mx-auto text-center !outline-none !border-none"
+      placeholder="تعداد : " />
+  {% endif %}
+{% else %}
+  <input
+  type="number"
+  value="0"
+  name="cornice_9"
+  id="variantInput"
+  data-price="{{ cornice.Cornic_9.price_retail }}"
+  disabled
+  class="w-full bg-tertiary mx-auto px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mx-auto text-center !outline-none !border-none"
+  placeholder="تعداد : " />
+{% endif %}
+
+    <div
+      id="minus"
+      class="bg-primary text-tertiary cursor-pointer h-full aspect-square flex justify-center items-center text-2xl font-extrabold">
+      -
+    </div>
+    </label>
+<div
+class="w-full h-14 flex gap-5 items-center col-span-2 text-xl font-bold">
+لوازم قرنیز :
+</div>
+<div class="w-full h-14 flex gap-5 items-center">
+<span class="text-primary text-lg md:text-xl font bold">
+  گرده  (پایان کار)
+</span>
+<input
+  type="checkbox"
+  name=""
+  id="checkbox"
+  data-index="1"
+  class="size-5 group" />
+<div class="h-full bg-white"></div>
+</div>
+<label
+for="variantInput"
+class="relative flex h-14 rounded-lg overflow-hidden">
+<div
+  id="plus"
+  class="bg-primary text-tertiary cursor-pointer h-full aspect-square flex justify-center items-center text-2xl font-extrabold">
+  +
+</div>
+  <!-- ----------------------- -->
+  {% if user.is_authenticated %}
+  {% if user.customer_type == 'wholesale' %}
+<input
+  type="number"
+  value="0"
+  name="Gordeh"
+  id="variantInput"
+  data-price="{{ cornice.Gordeh.price_wholesale }}"
+  disabled
+  class="w-full bg-tertiary mx-auto px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mx-auto text-center !outline-none !border-none"
+  placeholder="تعداد پنل مورد نیاز: " />
+  <!-- ----------------------- -->
+  {% else %}
+  <!-- ----------------------- -->
+<input
+  type="number"
+  value="0"
+  name="Gordeh"
+  id="variantInput"
+  data-price="{{ cornice.Gordeh.price_retail }}"
+  disabled
+  class="w-full bg-tertiary mx-auto px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mx-auto text-center !outline-none !border-none"
+  placeholder="تعداد پنل مورد نیاز: " />
+  <!-- ----------------------- -->
+  {% endif %}
+  {% else %}
+  <!-- ----------------------- -->
+<input
+  type="number"
+  value="0"
+  name="Gordeh"
+  id="variantInput"
+  data-price="{{ cornice.Gordeh.price_retail }}"
+  disabled
+  class="w-full bg-tertiary mx-auto px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mx-auto text-center !outline-none !border-none"
+  placeholder="تعداد پنل مورد نیاز: " />
+  <!-- ----------------------- -->
+  {% endif %}
+
+<div
+  id="minus"
+  class="bg-primary text-tertiary cursor-pointer h-full aspect-square flex justify-center items-center text-2xl font-extrabold">
+  -
+</div>
+</label>
+<div class="w-full h-14 flex gap-5 items-center">
+<span class="text-primary text-lg md:text-xl font bold">
+       میانه
+</span>
+<input
+  type="checkbox"
+  name=""
+  id="checkbox"
+  data-index="1"
+  class="size-5 group" />
+<div class="h-full bg-white"></div>
+</div>
+<label
+for="variantInput"
+class="relative flex h-14 rounded-lg overflow-hidden">
+<div
+  id="plus"
+  class="bg-primary text-tertiary cursor-pointer h-full aspect-square flex justify-center items-center text-2xl font-extrabold">
+  +
+</div>
+  <!-- ----------------------- -->
+  {% if user.is_authenticated %}
+  {% if user.customer_type == 'wholesale' %}
+<input
+  type="number"
+  value="0"
+  name="Miane"
+  id="variantInput"
+  data-price="{{ cornice.Miane.price_wholesale }}"
+  disabled
+  class="w-full bg-tertiary mx-auto px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mx-auto text-center !outline-none !border-none"
+  placeholder="تعداد پنل مورد نیاز: " />
+  <!-- ----------------------- -->
+  {% else %}
+  <!-- ----------------------- -->
+<input
+  type="number"
+  value="0"
+  name="Miane"
+  id="variantInput"
+  data-price="{{ cornice.Miane.price_retail }}"
+  disabled
+  class="w-full bg-tertiary mx-auto px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mx-auto text-center !outline-none !border-none"
+  placeholder="تعداد پنل مورد نیاز: " />
+  <!-- ----------------------- -->
+  {% endif %}
+  {% else %}
+  <!-- ----------------------- -->
+<input
+  type="number"
+  value="0"
+  name="Miane"
+  id="variantInput"
+  data-price="{{ cornice.Miane.price_retail }}"
+  disabled
+  class="w-full bg-tertiary mx-auto px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mx-auto text-center !outline-none !border-none"
+  placeholder="تعداد پنل مورد نیاز: " />
+  <!-- ----------------------- -->
+  {% endif %}
+
+<div
+  id="minus"
+  class="bg-primary text-tertiary cursor-pointer h-full aspect-square flex justify-center items-center text-2xl font-extrabold">
+  -
+</div>
+</label>
+<div class="w-full h-14 flex gap-5 items-center">
+<span class="text-primary text-lg md:text-xl font bold">
+  تاشو
+</span>
+<input
+  type="checkbox"
+  name=""
+  id="checkbox"
+  data-index="1"
+  class="size-5 group" />
+<div class="h-full bg-white"></div>
+</div>
+<label
+for="variantInput"
+class="relative flex h-14 rounded-lg overflow-hidden">
+<div
+  id="plus"
+  class="bg-primary text-tertiary cursor-pointer h-full aspect-square flex justify-center items-center text-2xl font-extrabold">
+  +
+</div>
+{% if user.is_authenticated %}
+{% if user.customer_type == 'wholesale' %}
+  <!-- ----------------------- -->
+<input
+  type="number"
+  value="0"
+  name="Tasho"
+  id="variantInput"
+  data-price="{{ cornice.Tasho.price_wholesale }}"
+  disabled
+  class="w-full bg-tertiary mx-auto px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mx-auto text-center !outline-none !border-none"
+  placeholder="تعداد پنل مورد نیاز: " />
+  <!-- ----------------------- -->
+  {% else %}
+  <!-- ----------------------- -->
+<input
+  type="number"
+  value="0"
+  name="Tasho"
+  id="variantInput"
+  data-price="{{ cornice.Tasho.price_retail }}"
+  disabled
+  class="w-full bg-tertiary mx-auto px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mx-auto text-center !outline-none !border-none"
+  placeholder="تعداد پنل مورد نیاز: " />
+  <!-- ----------------------- -->
+  {% endif %}
+  {% else %}
+  <!-- ----------------------- -->
+<input
+  type="number"
+  value="0"
+  name="Tasho"
+  id="variantInput"
+  data-price="{{ cornice.Tasho.price_retail }}"
+  disabled
+  class="w-full bg-tertiary mx-auto px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mx-auto text-center !outline-none !border-none"
+  placeholder="تعداد پنل مورد نیاز: " />
+  <!-- ----------------------- -->
+  {% endif %}
+
+<div
+  id="minus"
+  class="bg-primary text-tertiary cursor-pointer h-full aspect-square flex justify-center items-center text-2xl font-extrabold">
+  -
+</div>
+</label>
+<div class="w-full h-14 flex gap-5 items-center">
+  <span class="text-primary text-lg md:text-xl font bold">
+    اسکوتیا
+  </span>
+  <input
+    type="checkbox"
+    name=""
+    id="checkbox"
+    data-index="1"
+    class="size-5 group" />
+  <div class="h-full bg-white"></div>
+  </div>
+  <label
+  for="variantInput"
+  class="relative flex h-14 rounded-lg overflow-hidden">
+  <div
+    id="plus"
+    class="bg-primary text-tertiary cursor-pointer h-full aspect-square flex justify-center items-center text-2xl font-extrabold">
+    +
+  </div>
+  {% if user.is_authenticated %}
+  {% if user.customer_type == 'wholesale' %}
+  <!-- ----------------------- -->
+  <input
+    type="number"
+    value="0"
+    name="Scouti"
+    id="variantInput"
+    data-price="{{ cornice.Scouti.price_wholesale }}"
+    disabled
+    class="w-full bg-tertiary mx-auto px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mx-auto text-center !outline-none !border-none"
+    placeholder="تعداد پنل مورد نیاز: " />
+  <!-- ----------------------- -->
+  {% else %}
+  <!-- ----------------------- -->
+  <input
+    type="number"
+    value="0"
+    name="Scouti"
+    id="variantInput"
+    data-price="{{ cornice.Scouti.price_retail}}"
+    disabled
+    class="w-full bg-tertiary mx-auto px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mx-auto text-center !outline-none !border-none"
+    placeholder="تعداد پنل مورد نیاز: " />
+  <!-- ----------------------- -->
+  {% endif %}
+  {% else %}
+  <!-- ----------------------- -->
+  <input
+    type="number"
+    value="0"
+    name="Scouti"
+    id="variantInput"
+    data-price="{{ cornice.Scouti.price_retail }}"
+    disabled
+    class="w-full bg-tertiary mx-auto px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mx-auto text-center !outline-none !border-none"
+    placeholder="تعداد پنل مورد نیاز: " />
+  <!-- ----------------------- -->
+  {% endif %}
+  <div
+    id="minus"
+    class="bg-primary text-tertiary cursor-pointer h-full aspect-square flex justify-center items-center text-2xl font-extrabold">
+    -
+  </div>
+  </label>
+<!-- <div
+class="w-full col-span-2 md:col-span-1 flex justify-between items-center">
+<div class="md:text-sm">
+  قیمت نهایی:
+  <span
+    class="text-primary text-2xl md:text-sm font bold"
+    id="totalPrice"
+    >0</span
+  >
+  <span class="text-primary text-2xl md:text-sm font bold"
+    >تومان</span
+  >
+</div>
+<button
+  class="bg-white rounded-lg flex justify-center items-center md:text-sm md:px-3 px-5 py-2 font-extrabold text-xl text-senary">
+  ثبت سفارش
+</button>
+</div> -->

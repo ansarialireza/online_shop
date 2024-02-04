@@ -1,0 +1,61 @@
+/* styles.css */
+.alert {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 15px;
+    margin-bottom: 20px;
+    color: #333;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6; /* تغییر ضخامت border به 1px */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.alert-text {
+    flex: 1;
+}
+
+.alert-dismissible {
+    padding-right: 3rem;
+}
+
+.alert-dismissible .btn-close {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.alert-dismissible .btn-close::before {
+    content: '\00d7';
+    font-size: 24px;
+    color: #888;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.alert-info {
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+.alert-warning {
+    background-color: #f8d7da; /* Keep the existing background color for warning messages */
+    border-color: #f5c6cb; /* Keep the existing border color for warning messages */
+    color: #721c24; /* Text color for warning messages */
+}

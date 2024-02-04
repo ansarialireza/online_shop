@@ -1,0 +1,208 @@
+{% load static %}
+{% load humanize %}
+{% load custom_filters %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طراحان</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="shortcut icon" href="{% static '/assets/tarahanIcon-thsqZuN2.svg' %}" type="image/x-icon">
+  <script type="module" crossorigin src="{% static '/assets/output-22b6PNpL.js' %}"></script>
+  <script type="module" crossorigin src="{% static '/assets/main-Acrfd2WL.js' %}"></script>
+  <link rel="stylesheet" crossorigin href="{% static '/assets/alert.css' %}"> 
+  <link rel="stylesheet" crossorigin href="{% static 'js/alert.js' %}"> 
+  <link rel="stylesheet" crossorigin href="{% static '/assets/output-xplU_3MA.css' %}">
+</head>
+<body dir="rtl">
+  {% include 'nav.html' %}
+    <nav class="w-full h-14 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.15)] px-4 hidden lg:flex justify-between items-center relative">
+      <a href="{% url 'website:home' %}">
+      <img src="{% static '/images/tarahanIcon.svg' %}" alt="" class="size-10 aspect-square">
+      </a>
+      <button class="flex flex-col justify-around w-6 h-6 bg-transparent border-none cursor-pointer z-10 focus:outline-none" id="hamburger">
+        <span class="block w-6 h-0.5 bg-black transition-transform duration-500 ease-in-out"></span>
+        <span class="block w-6 h-0.5 bg-black transition-transform duration-500 ease-in-out"></span>
+        <span class="block w-6 h-0.5 bg-black transition-transform duration-500 ease-in-out"></span>
+      </button>    
+    </nav>
+    {% include 'Phone.html' %}
+    <section class="px-36 2xl:px-10 py-4 bg-secondary h-28 flex justify-center md:!px-3 md:h-fit md:py-2 ">
+        <div class="w-full h-full bg-secondary ">
+        <a href="{% url 'cart:cart' %}" class="group">
+            <h1 class="text-3xl font-extrabold text-primary md:text-lg">
+                سبد خرید
+            </h1>
+        </a>
+        </div>
+    </section>
+    <main class="w-full h-fit px-48 2xl:px-16 md:!px-0 py-10 md:py-5 flex flex-col gap-10 md:gap-5 items-center bg-tertiary">
+      {% if cart %}
+      {% for item in cart %}
+      <section class="md:w-11/12 w-10/12 md:grid-rows-auto rounded-3xl bg-secondary h-fit grid grid-cols-3 md:grid-cols-1 gap-10 md:gap-5 p-8 md:p-4 md:flex-col-reverse">
+        <div class="w-full col-span-2 md:col-span-1 md:w-full min-h-full h-full flex flex-col  justify-between">
+          <div class="w-full flex flex-col gap-5">
+            <div class="w-full flex justify-between">
+              <a href="{% url 'products:product_detail' product_id=item.product.id %}">
+              <h2 class="text-primary text-3xl md:text-xl font-extrabold">{{ item.product.title }}</h2>
+              </a>
+              <h5 class="text-primary text-lg  font-bold flex justify-center items-center">کد محصول:<span class="mr-5">{{ item.product_code }}</span></h5>
+            </div>
+            <!-- ... (other code) ... -->
+            <!-- <img src="{{ item.texture_image_url }}" alt="Texture Image"> -->
+            <div class="w-full h-14 flex gap-5 items-center">
+              <!-- <a href="{% url 'cart:update' item.product.id %}"> -->
+                <button id="colorButton" class="text-primary bg-tertiary px-5 py-1 rounded-lg text-lg md:text-xl font bold">رنگ انتخاب شده</button>
+              <!-- </a> -->
+              <img src="{{ item.texture_image_url }}" class="size-14 object-cover rounded-xl" alt="" id="texturePreview">
+            </div>            
+            <!-- ... (other code) ... -->
+            <ul class="list-disc pr-10 text-primary text-lg md:text-base font-medium">
+              {% if item.cornice_7 %}
+              <li>
+                قرنیز 7 سانتی: {{ item.cornice_7 }} {{ item.product.price.get_translated_unit }} 
+              </li>
+              {% endif %}
+              {% if item.cornice_9 %}
+              <li>
+                قرنیز 9 سانتی: {{ item.cornice_9 }} {{ item.product.price.get_translated_unit }} 
+              </li>
+              {% endif %}
+              {% if item.product_type != 'Customcurtain' %}
+              {% if item.product_length %}
+                <li>
+                  طول: {{ item.product.dimensions.get_length_display }}
+                </li>
+              {% endif %}
+              {% if item.product_width %}
+              <li>
+                عرض: {{ item.product.dimensions.get_width_display }}
+              </li>
+              {% endif %} 
+              {% endif %}
+              {% if item.width %}
+                <li>
+                  عرض: {{ item.width }} 
+                </li>
+              {% endif %} 
+              {% if item.product.dimensions.thickness %}
+                <li>
+                  ضخامت: {{ item.product.dimensions.get_thickness_display }}
+                </li>
+              {% endif %}
+              {% if item.product_type == 'cornice' %}
+              <br>
+              <span class="text-primary text-lg md:text-sm font-bold">
+                لوازم قرنیز :
+              </span>
+                {% if item.Gordeh %}
+                <li>
+                  گرده : {{ item.Gordeh }} عدد
+                </li>
+                {% endif %} 
+                {% if item.Miane %}
+                <li>
+                  میانه : {{ item.Miane }} عدد
+                </li>
+                {% endif %} 
+                {% if item.Tasho %}
+                <li>
+                  تاشو : {{ item.Tasho }} عدد
+                </li>
+                {% endif %} 
+                {% if item.Scouti %}
+                <li>
+                  اسکوتیا : {{ item.Scouti }} عدد
+                </li>
+                {% endif %} 
+              {% endif %} 
+              {% if item.product_type != 'cornice' %}
+              {% if item.quantity %}
+              <li>
+                تعداد : {{ item.quantity }}
+              </li>
+              {% endif %}
+              {% endif %}
+              {% if item.product_type == 'Floorcoverings' %}
+              <br>
+              <span class="text-primary text-lg md:text-sm font-bold">
+                چسب:
+              </span>
+                {% if item.glue_4kg %}
+                <li>
+                  چسب 4 کیلویی : {{ item.glue_4kg }} عدد
+                </li>
+                {% endif %} 
+                {% if item.glue_10kg %}
+                <li>
+                  چسب 10 کیلویی : {{ item.glue_10kg }} عدد
+                </li>
+                {% endif %} 
+              {% endif %}
+              {% if item.length %}
+                <li>
+                  طول: {{ item.length }} 
+                </li>
+              {% endif %}
+              {% if item.needs_curtain_rod %}
+                <li>
+                  نیاز به چوب پرده: بله
+                </li>
+              {% endif %}
+              <!-- {% if item.description %}
+              <li>
+                توضیحات: {{ item.description }}
+              </li>
+              {% endif %} -->
+            </ul>
+            
+               <span class="text-primary text-lg md:text-sm font-bold">
+              قیمت : {{ item.item_price|intcomma }} تومان
+               </span>
+          </div>
+          <div class="w-full flex flex-col items-end">
+            <form method="post" action="{% url 'cart:remove' item.product.id %}">
+              {% csrf_token %}
+              <button type="submit" class="w-fit px-6 py-2 rounded-xl bg-quinary text-primary text-xl md:text-base font-bold">
+                  حذف محصول
+              </button>
+          </form>
+          </div>
+        </div>
+        <div class="w-full col-span-1 md:col-span-1 md:-order-1 md:w-full md:max-h-52 aspect-square flex flex-col md:flex-row rounded-3xl bg-white ">
+          <a href="{% url 'products:product_detail' product_id=item.product.id %}">
+          <img src="{{ item.image_url }}" class="w-full md:w-[calc(100%-3.5rem)] md:aspect-video h-full aspect-square rounded-3xl object-cover" alt="{{ item.product.title }}">
+          </a>
+        </div>  
+      </section>
+      {% endfor %}
+      <span class="text-primary text-lg md:text-sm font-bold">
+        قیمت نهایی : {{ cart.get_total_price|intcomma }} تومان
+         </span>
+      <form method="post" action="{% url 'payments:payment' %}">
+        {% csrf_token %}
+        <button type="submit" class="w-fit px-6 py-2 rounded-xl bg-quinary text-primary text-xl md:text-base font-bold">
+          پرداخت
+        </button>
+    </form>
+      <!-- <form method="post" action="{% url 'orders:create' %}">
+        {% csrf_token %}
+        <button type="submit" class="w-fit px-6 py-2 rounded-xl bg-quinary text-primary text-xl md:text-base font-bold">
+          پرداخت
+        </button>
+       </form> -->
+      {% else %}
+      <p class="text-primary text-2xl font-bold">سبد خرید شما خالی است</p>
+      {% endif %}
+    </main>
+    {% include 'footer.html' %}
+</body>
+</html>
+
+
+              <!-- <button class="w-full h-0 group-hover:h-10 bg-quinary overflow-hidden transition-all duration-200 rounded-2xl">
+                <span class="text-xl opacity-70 text-primary font-extrabold">
+                  بله
+                </span>
+              </button> -->

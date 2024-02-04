@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<main class="w-full h-fit px-48 2xl:px-16 md:!px-0 py-10 md:py-5 flex flex-col gap-20 md:gap-5 items-center bg-tertiary">
+  <form method="post">
+    {% csrf_token %}
+    {% if user.name and user.lastname and user.phone_number and user.postal_code and user.province and user.city and user.address %}
+    <section class="w-full h-fit bg-secondary p-10 md:p-5 grid grid-cols-2 md:grid-cols-1 gap-5 rounded-4xl">
+      <input name="name" type="text" class="w-full bg-tertiary h-14 rounded-lg px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mr-5 !outline-none !border-none" placeholder="{{ user.name }}">
+      <input name="lastname" type="text" class="w-full bg-tertiary h-14 rounded-lg px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mr-5 !outline-none !border-none" placeholder="{{ user.lastname }}">
+      <input name="phone_number" type="text" class="w-full bg-tertiary h-14 rounded-lg px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mr-5 !outline-none !border-none"placeholder="{{ user.phone_number }}" readonly>
+      <input name="postal_code" type="text" class="w-full bg-tertiary h-14 rounded-lg px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mr-5 !outline-none !border-none" placeholder="{{ user.postal_code }}">
+      <input name="province" type="text" class="w-full bg-tertiary h-14 rounded-lg px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mr-5 !outline-none !border-none" placeholder="{{ user.province }}">
+      <input name="city" type="text" class="w-full bg-tertiary h-14 rounded-lg px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mr-5 !outline-none !border-none" placeholder="{{ user.city }}">
+      <input name="address" type="text" class="w-full bg-tertiary h-14 rounded-lg px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mr-5 !outline-none !border-none col-span-2 md:col-span-1" placeholder="{{ user.address }}">
+      <div class="w-full col-span-2 md:col-span-1 flex justify-end">
+        <button type="submit" class="bg-white rounded-lg flex justify-center items-center px-5 py-2 font-extrabold text-xl text-senary">ارسال</button>
+      </div>
+    </section>
+    {% else %}
+    <section class="w-full h-fit bg-secondary p-10 md:p-5 grid grid-cols-2 md:grid-cols-1 gap-5 rounded-4xl">
+        <input name="name" type="text" class="w-full bg-tertiary h-14 rounded-lg px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mr-5 !outline-none !border-none" placeholder="نام:">
+        <input name="lastname" type="text" class="w-full bg-tertiary h-14 rounded-lg px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mr-5 !outline-none !border-none" placeholder="نام خانوادگی:">
+        <input name="phone_number" type="text" class="w-full bg-tertiary h-14 rounded-lg px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mr-5 !outline-none !border-none" value="{{ user.phone_number }}" placeholder="{{ user.phone_number }}" readonly>
+        <input name="postal_code" type="text" class="w-full bg-tertiary h-14 rounded-lg px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mr-5 !outline-none !border-none" placeholder="کد پستی:">
+        <input name="province" type="text" class="w-full bg-tertiary h-14 rounded-lg px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mr-5 !outline-none !border-none" placeholder="استان:">
+        <input name="city" type="text" class="w-full bg-tertiary h-14 rounded-lg px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mr-5 !outline-none !border-none" placeholder="شهر:">
+        <input name="address" type="text" class="w-full bg-tertiary h-14 rounded-lg px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mr-5 !outline-none !border-none col-span-2 md:col-span-1" placeholder="آدرس:">
+        <div class="w-full col-span-2 md:col-span-1 flex justify-end">
+          <button type="submit" class="bg-white rounded-lg flex justify-center items-center px-5 py-2 font-extrabold text-xl text-senary">ارسال</button>
+        </div>
+      </section>
+      {% endif %}
+  </form>
+</main>
+{% endblock content %}

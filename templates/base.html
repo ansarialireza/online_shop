@@ -1,0 +1,38 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>طراحان</title>
+    <link rel="stylesheet" href="{% static '/fonts/fonts.css' %}">
+    <link rel="stylesheet" crossorigin href="{% static '/assets/index-zkCL8-vd.css' %}">
+    <link rel="shortcut icon" href="{% static '/assets/tarahanIcon-thsqZuN2.svg' %}" type="image/x-icon">
+    <link rel="stylesheet" crossorigin href="{% static '/assets/alert.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script type="module" crossorigin src="{% static '/assets/index-xVh7E-Ed.js' %}"></script>
+  </head>
+  <body dir="rtl" class="bg-tertiary relative">
+    {% include 'nav.html' %}
+    <nav class="w-full h-14 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.15)] px-4 hidden lg:flex justify-between items-center">
+      <a href="{% url 'website:home' %}">
+      <img src="{% static '/images/tarahanIcon.svg' %}" alt="" class="size-10 aspect-square">
+      </a>
+      <button class="flex flex-col justify-around w-6 h-6 bg-transparent border-none cursor-pointer z-10 focus:outline-none" id="hamburger">
+        <span class="block w-6 h-0.5 bg-black transition-transform duration-500 ease-in-out"></span>
+        <span class="block w-6 h-0.5 bg-black transition-transform duration-500 ease-in-out"></span>
+        <span class="block w-6 h-0.5 bg-black transition-transform duration-500 ease-in-out"></span>
+      </button>    
+    </nav>
+    {% include 'Phone.html' %}
+
+
+    <!-- main-area -->
+    {% block content %} 
+    {% endblock content %}
+    <!-- main-area-end -->
+    {% include 'footer.html' %}
+    </body> 
+  </html>
+  

@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طراحان</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" crossorigin href="{% static '/assets/alert.css' %}">
+    <link rel="shortcut icon" href="{% static '/assets/tarahanIcon-thsqZuN2.svg' %}" type="image/x-icon">
+  <script type="module" crossorigin src="{% static '/assets/output-22b6PNpL.js' %}"></script>
+  <script type="module" crossorigin src="{% static '/assets/main-Acrfd2WL.js' %}"></script>
+  <link rel="stylesheet" crossorigin href="{% static '/assets/output-xplU_3MA.css' %}">
+  <script src="{% static 'js/cart.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body dir="rtl">
+    {% include 'nav.html' %}
+    <nav class="w-full h-14 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.15)] px-4 hidden lg:flex justify-between items-center">
+      <a href="{% url 'website:home' %}">
+      <img src="{% static '/images/tarahanIcon.svg' %}" alt="" class="size-10 aspect-square">
+      </a>
+      <button class="flex flex-col justify-around w-6 h-6 bg-transparent border-none cursor-pointer z-10 focus:outline-none" id="hamburger">
+        <span class="block w-6 h-0.5 bg-black transition-transform duration-500 ease-in-out"></span>
+        <span class="block w-6 h-0.5 bg-black transition-transform duration-500 ease-in-out"></span>
+        <span class="block w-6 h-0.5 bg-black transition-transform duration-500 ease-in-out"></span>
+      </button>    
+    </nav>
+
+    {% include 'Phone.html' %}
+    {% include 'website/messages.html' %}
+    {% block content %} 
+
+
+    {% endblock content %}
+    {% include 'footer.html' %}
+</body>
+</html>

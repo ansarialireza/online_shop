@@ -1,0 +1,148 @@
+<div
+class="w-full h-14 flex gap-5 items-center col-span-2 text-xl font-bold">
+تعداد کفپوش
+</div>  
+<label class="relative flex h-14 rounded-lg overflow-hidden">
+    <input
+      type="number"
+      name="quantity"
+      value="1"
+      id="orderNumber"
+      class="w-full bg-tertiary mx-auto px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mx-auto text-center !outline-none !border-none"
+      placeholder="تعداد" />
+  </label>
+
+<div
+class="w-full h-14 flex gap-5 items-center col-span-2 text-xl font-bold">
+نوع چسب:
+</div>
+<div class="w-full h-14 flex gap-5 items-center">
+  <span class="text-primary text-lg md:text-xl font bold md:col-span-1">
+    چسب 4 کیلویی
+  </span>
+  <input
+    type="checkbox"
+    name=""
+    id="checkbox"
+    data-index="1"
+    class="size-5 group" />
+  <div class="h-full bg-white"></div>
+  </div>
+  <label
+  for="variantInput"
+  class="relative flex h-14 rounded-lg overflow-hidden">
+  <div
+    id="plus"
+    class="bg-primary text-tertiary cursor-pointer h-full aspect-square flex justify-center items-center text-2xl font-extrabold">
+    +
+  </div>
+  <!-- ----------------------- -->
+  {% if user.is_authenticated %}
+    {% if user.customer_type == 'wholesale' %}
+      <input
+        type="number"
+        value="0"
+        name="glue_4kg"
+        id="variantInput"
+        data-price="{{ cornice.Cornic_7.price_wholesale }}"
+        disabled
+        class="w-full bg-tertiary mx-auto px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mx-auto text-center !outline-none !border-none"
+        placeholder="تعداد :" />
+      <!-- ----------------------- -->
+      {% else %}
+      <!-- ----------------------- -->
+      <input
+      type="number"
+      value="0"
+      name="glue_4kg"
+      id="variantInput"
+      data-price="{{ cornice.Cornic_7.price_retail }}"
+      disabled
+      class="w-full bg-tertiary mx-auto px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mx-auto text-center !outline-none !border-none"
+      placeholder="تعداد :" />
+    <!-- ----------------------- -->
+    {% endif %}
+  {% else %}
+    <input
+    type="number"
+    name="glue_4kg"
+    value="0"
+    id="variantInput"
+    data-price="{{ cornice.Cornic_7.price_retail }}"
+    disabled
+    class="w-full bg-tertiary mx-auto px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mx-auto text-center !outline-none !border-none"
+    placeholder="تعداد :" />
+  {% endif %}
+  
+
+
+      
+
+  <div
+    id="minus"
+    class="bg-primary text-tertiary cursor-pointer h-full aspect-square flex justify-center items-center text-2xl font-extrabold">
+    -
+  </div>
+  </label>
+  <div class="w-full h-14 flex gap-5 items-center">
+    <span class="text-primary text-lg md:text-xl font bold">
+      چسب 10 کیلویی
+    </span>
+    <input
+      type="checkbox"
+      name=""
+      id="checkbox"
+      data-index="1"
+      class="size-5 group" />
+    <div class="h-full bg-white"></div>
+    </div>
+    <label
+    for="variantInput"
+    class="relative flex h-14 rounded-lg overflow-hidden">
+    <div
+      id="plus"
+      class="bg-primary text-tertiary cursor-pointer h-full aspect-square flex justify-center items-center text-2xl font-extrabold">
+      +
+    </div>
+  <!-- ----------------------- -->
+  {% if user.is_authenticated %}
+    {% if user.customer_type == 'wholesale' %}
+      <input
+        type="number"
+        value="0"
+        name="glue_10kg"
+        id="variantInput"
+        data-price="{{ cornice.Cornic_9.price_wholesale }}"
+        disabled
+        class="w-full bg-tertiary mx-auto px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mx-auto text-center !outline-none !border-none"
+        placeholder="تعداد : " />
+  <!-- ----------------------- -->
+  {% else %}
+      <input
+      type="number"
+      value="0"
+      name="glue_10kg"
+      id="variantInput"
+      data-price="{{ cornice.Cornic_9.price_retail }}"
+      disabled
+      class="w-full bg-tertiary mx-auto px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mx-auto text-center !outline-none !border-none"
+      placeholder="تعداد : " />
+  {% endif %}
+{% else %}
+  <input
+  type="number"
+  value="0"
+  name="glue_10kg"
+  id="variantInput"
+  data-price="{{ cornice.Cornic_9.price_retail }}"
+  disabled
+  class="w-full bg-tertiary mx-auto px-5 placeholder:text-lg font-semibold placeholder:text-senary placeholder:mx-auto text-center !outline-none !border-none"
+  placeholder="تعداد : " />
+{% endif %}
+
+    <div
+      id="minus"
+      class="bg-primary text-tertiary cursor-pointer h-full aspect-square flex justify-center items-center text-2xl font-extrabold">
+      -
+    </div>
+    </label>

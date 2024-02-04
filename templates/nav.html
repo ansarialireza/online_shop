@@ -1,0 +1,76 @@
+{% load static %}
+<nav class="w-full  h-24 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.15)] px-36 2xl:px-10 flex justify-between items-center lg:hidden">
+    <div class="w-fit flex gap-6 items-center">
+      <a href="{% url 'website:home' %}">
+        <img src="{% static '/images/tarahanIcon.svg' %}" alt="" class="w-16 h-16 aspect-square">
+      </a>
+      <div class=" flex gap-6 ">
+        <div class="flex justify-center items-center gap-2 cursor-pointer relative group">
+          <a href="{% url 'website:sofas' %}">
+          <span class="text-primary text-xl font-extrabold  text-center 2xl:text-base">مبل و پارچه مبلی</span>
+          </a>
+          <img src="{% static '/icons/chevronDown.svg' %}" alt="" class="w-5 h-5 group-hover:rotate-180 transition-all">
+          <div class="absolute right-0 top-full translate-y-3 text-white z-10 bg-white shadow-lg overflow-hidden min-w-40 w-full rounded-2xl h-0 transition-all duration-200 px-3 flex flex-col gap-2 group-hover:h-20">
+            <a href="{% url 'products:sofa' %}" class="text-quaternary text-base mt-3 hover:text-primary font-extrabold">مبل</a>
+            <a href="{% url 'products:sofafabric' %}" class="text-quaternary text-base mt-3 hover:text-primary font-extrabold">پارچه مبلی</a>
+          </div>
+        </div>
+        <div class="flex justify-center items-center gap-2 cursor-pointer relative group">
+          <span class="text-primary text-xl font-extrabold  text-center 2xl:text-base">دکراسیون</span>
+          <img src="{% static '/icons/chevronDown.svg' %}" alt="" class="w-5 h-5 group-hover:rotate-180 transition-all">
+          <div class="absolute right-0 top-full translate-y-3 text-white z-10 bg-white shadow-lg overflow-hidden min-w-40 w-full rounded-2xl h-0 transition-all duration-200 px-3 flex flex-col gap-2 group-hover:h-20">
+            <a href="{% url 'products:wallcovering' %}" class="text-quaternary text-base mt-3 hover:text-primary font-extrabold">پوشش های دیواری</a>
+            <a href="{% url 'products:floorcovering' %}" class="text-quaternary text-base mt-3 hover:text-primary font-extrabold">پوشش های کف</a>
+            <a href="{% url 'products:floorcovering' %}" class="text-quaternary text-base mt-3 hover:text-primary font-extrabold">قرنیز</a>
+          </div>
+        </div>
+        <div class="flex justify-center items-center gap-2 cursor-pointer relative group">
+          <span class="text-primary text-xl font-extrabold  text-center 2xl:text-base">پرده</span>
+          <img src="{% static '/icons/chevronDown.svg' %}" alt="" class="w-5 h-5 group-hover:rotate-180 transition-all">
+          <div class="absolute right-0 top-full translate-y-3 text-white z-10 bg-white shadow-lg overflow-hidden min-w-40 w-full rounded-2xl h-0 transition-all duration-200 px-3 flex flex-col gap-2 group-hover:h-fit group-hover:py-3">
+            <a href="{% url 'products:readycurtain' %}" class="text-quaternary text-base mt-3 hover:text-primary font-extrabold">پرده آماده</a>
+            <a href="{% url 'products:customcurtain' %}" class="text-quaternary text-base mt-3 hover:text-primary font-extrabold">پرده سفارشی</a>
+            <a href="" class="text-quaternary text-base mt-3 hover:text-primary font-extrabold">زبرا شیپ</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w-fit flex gap-3 justify-start items-center flex-row-reverse">
+      <a href="{% url 'accounts:PartnerSignUp' %}" class="button-link">
+        <button class="w-fit h-12 2xl:h-8 2xl:rounded-lg 2xl:text-base 2xl:py-0 rounded-2xl bg-secondary px-10 py-2 text-primary text-xl font-extrabold">همکاری</button>
+    </a>
+      <div class="min-w-12 w-fit h-12 2xl:h-8 2xl:min-w-8 2xl:rounded-lg bg-secondary flex justify-center items-center rounded-2xl p-2 cursor-pointer group ">
+        <div class="w-0 overflow-hidden transition-all duration-300 opacity-0 group-hover:w-20 group-hover:opacity-100">
+          <a href="{% url 'website:about' %}">
+          <p  class="w-20 h-fit">تماس با ما</p>
+          </a>
+        </div>
+        <img src="{% static '/icons/phone.svg' %}" alt="" class="size-8 2xl:size-4 aspect-square">
+      </div>
+      <div id="loginButton" class="min-w-12 w-fit h-12 2xl:h-8 2xl:min-w-8 2xl:rounded-lg bg-secondary flex justify-center items-center rounded-2xl p-2 cursor-pointer group">
+        <div class="w-0 overflow-hidden transition-all duration-300 opacity-0 group-hover:w-24 group-hover:opacity-100">
+          <p class="w-24 h-fit">حساب کاربری</p>
+        </div>
+        <img src="{% static '/icons/user.svg' %}" alt="" class="size-8 2xl:size-4 aspect-square">
+      </div>
+      <div class="min-w-12 w-fit h-12 2xl:h-8 2xl:min-w-8 2xl:rounded-lg bg-secondary flex justify-center items-center rounded-2xl p-2 cursor-pointer group">
+        <a href="{% url 'cart:cart' %}" class="group">
+            <div class="w-0 overflow-hidden transition-all duration-300 opacity-0 group-hover:w-20 group-hover:opacity-100">
+              <p class="w-20 h-fit">سبد خرید</p>
+            </div>
+          </a>          
+        <img src="{% static '/icons/ShoppingCart.svg' %}" alt="" class="size-8 2xl:size-4 aspect-square">
+      </div>
+      <form action="{% url 'products:search_results' %}" method="GET">
+        <div class="min-w-12 w-fit h-12 2xl:h-8 2xl:min-w-8 2xl:rounded-lg bg-secondary flex justify-center items-center rounded-2xl p-2 cursor-pointer group">
+            <div class="w-0 h-full overflow-hidden transition-all duration-300 opacity-0 group-hover:w-40 group-hover:opacity-100">
+                <input name="q" class="w-40 h-full bg-secondary !border-none !outline-none" placeholder="جست و جو"/>
+            </div>
+            <img src="{% static '/icons/Search.svg' %}" alt="" class="size-8 2xl:size-4 aspect-square">
+            <button type="submit" class="hidden"></button>
+        </div>
+    </form>
+    </div>
+  </nav>
+  {% include 'website/goftino.html' %}
+  {% include 'website/messages.html' %}
